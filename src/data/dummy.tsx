@@ -21,7 +21,23 @@ import product4 from './product4.jpg';
 import product5 from './product5.jpg';
 import product6 from './product6.jpg';
 import product7 from './product7.jpg';
-import { Navigator } from '../types';
+import { Navigator, RouteType } from '../types';
+import { ECommercePage } from '../pages/ecommerce.page';
+import { OrdersPage } from '../pages/orders.page';
+import { EmployeesPage } from '../pages/employees.page';
+import { CustomersPage } from '../pages/customers.page';
+import { KanbanPage } from '../pages/kanban.page';
+import { EditorPage } from '../pages/editor.page';
+import { CalendarPage } from '../pages/calendar.page';
+import { ColorPickerPage } from '../pages/colorPicker.page';
+import { AreaComponent } from '../components/area.component';
+import { BarComponent } from '../components/bar.component';
+import { FinancialPage } from '../components/financial.component';
+import { ColorMappingPage } from '../pages/colorMapping.page';
+import { PyramidComponent } from '../components/pyramid.component';
+import { LineChartComponent } from '../components/lineChart.component';
+import { PieComponent } from '../components/pie.component';
+import { StackedComponent } from '../components/stacked.component';
 
 export const gridOrderImage = (props: any) => (
     <div>
@@ -456,7 +472,81 @@ export const customersGrid = [
         textAlign: 'Center',
         isPrimaryKey: true,
     },
+];
 
+export const routes: RouteType[] = [
+    {
+        path: '/',
+        element: <ECommercePage />
+    },
+    {
+        path: '/ecommerce',
+        element: <ECommercePage />
+    },
+    {
+        path: '/orders',
+        element: <OrdersPage />
+    },
+    {
+        path: '/employees',
+        element: <EmployeesPage />
+    },
+    {
+        path: '/customers',
+        element: <CustomersPage />
+    },
+    {
+        path: '/kanban',
+        element: <KanbanPage />
+    },
+    {
+        path: '/editor',
+        element: <EditorPage />
+    },
+    {
+        path: '/calendar',
+        element: <CalendarPage />
+    },
+    {
+        path: '/editor',
+        element: <EditorPage />
+    },
+    {
+        path: '/color-picker',
+        element: <ColorPickerPage />
+    },
+    {
+        path: '/line',
+        element: <LineChartComponent />
+    },
+    {
+        path: '/area',
+        element: <AreaComponent />
+    },
+    {
+        path: '/bar',
+        element: <BarComponent />
+    },
+    {
+        path: '/pie',
+        element: <PieComponent />
+    },
+    {
+        path: '/financial',
+        element: <FinancialPage />
+    },
+    {
+        path: '/color-mapping',
+        element: <ColorMappingPage />
+    },
+    {
+        path: '/pyramid',
+        element: <PyramidComponent />
+    },
+    {
+        path: '/stacked',
+        element: <StackedComponent />
+    },
 ];
 
 export const employeesGrid = [

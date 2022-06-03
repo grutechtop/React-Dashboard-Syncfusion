@@ -1,5 +1,3 @@
-import React from 'react';
-
-export function UserProfileComponent(): JSX.Element {
+export function UserProfile(): JSX.Element {
     return <div>UserProfile component</div>;
 }

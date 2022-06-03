@@ -4,20 +4,27 @@ import { MdOutlineCancel } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { Navigator, NavigatorLink } from '../types';
 import { navigations } from '../data/dummy';
+import { useStateContext } from '../contexts/context.provider';
 
 export function SidebarComponent() {
 
-    const activeMenu = true;
+    const { isMenuVisible, setIsMenuVisible, screenSize } = useStateContext();
+
+    const handleCloseSidebar = () => {
+        if (isMenuVisible && (screenSize as number) <= 900) {
+            setIsMenuVisible(false);
+        }
+    }
 
     return <div className={styles.container}>
         {
-            activeMenu && <>
+            isMenuVisible && <>
                 <div className={styles.linksRow}>
-                    <Link to={'/'} onClick={() => { }} className={styles.link} >
+                    <Link to={'/'} onClick={handleCloseSidebar} className={styles.link} >
                         <SiShopware /><span>React App</span>
                     </Link>
                     <TooltipComponent content='Menu' position='BottomCenter' >
-                        <button type='button' onClick={() => { }} className={styles.cancelButton}>
+                        <button type='button' onClick={() => setIsMenuVisible(!isMenuVisible)} className={styles.cancelButton}>
                             <MdOutlineCancel />
                         </button>
                     </TooltipComponent>
@@ -26,11 +33,11 @@ export function SidebarComponent() {
                     {
                         navigations.map(
                             (navigator: Navigator) => <div key={navigator.title}>
-                                <p className={styles.navSectionTitle} >{navigator.title}</p>
+                                <p className={styles.navSectionTitle}>{navigator.title}</p>
                                 {
                                     navigator.links.map(
                                         (link: NavigatorLink) => <NavLink
-                                            onClick={() => { }}
+                                            onClick={handleCloseSidebar}
                                             key={link.name}
                                             to={`/${link.name}`}
                                             className={({ isActive }) => isActive ? styles.activeLink : styles.passiveLink}
@@ -48,7 +55,7 @@ export function SidebarComponent() {
                 </div>
             </>
         }
-    </div>;
+    </div >;
 }
 
 const styles = {

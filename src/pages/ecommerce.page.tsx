@@ -1,4 +1,4 @@
 
 export function ECommercePage(): JSX.Element {
-    return <div>eCommerce component</div>;
+    return <div>eCommerce</div>;
 }
